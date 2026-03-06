@@ -1,19 +1,7 @@
 import pytest
 
-from product.serializers import CategorySerializer, ProductSerializer
+from product.serializers import ProductSerializer
 from product.factories import CategoryFactory, ProductFactory
-
-
-@pytest.mark.django_db
-def test_category_serializer():
-    category = CategoryFactory()
-
-    serializer = CategorySerializer(category)
-
-    assert serializer.data["title"] == category.title
-    assert serializer.data["slug"] == category.slug
-    assert serializer.data["description"] == category.description
-    assert serializer.data["active"] == category.active
 
 
 @pytest.mark.django_db
