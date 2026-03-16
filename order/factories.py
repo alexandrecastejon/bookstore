@@ -28,3 +28,4 @@ class OrderFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = Order
+        
