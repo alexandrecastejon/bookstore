@@ -1,15 +1,18 @@
 name: Python application
 
-on: [push]
+on:
+  push:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+    env:
+      POETRY_VIRTUALENVS_CREATE: false
+
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.13.0", "3.14.0"]
-
-    runs-on: ubuntu-latest
+        python-version: ["3.13", "3.14"]
 
     steps:
       - uses: actions/checkout@v4
@@ -21,10 +24,9 @@ jobs:
 
       - name: Install Poetry and dependencies
         run: |
-          python -m ensurepip
           python -m pip install --upgrade pip
-          python -m pip install --upgrade poetry
-          poetry install --with dev
+          python -m pip install poetry
+          poetry install
 
       - name: Test
-        run: poetry run python manage.py test
+        run: python manage.py test

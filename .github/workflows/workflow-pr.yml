@@ -7,6 +7,9 @@ jobs:
   qa:
     name: Quality check
     runs-on: ubuntu-latest
+    env:
+      POETRY_VIRTUALENVS_CREATE: false
+
     strategy:
       fail-fast: false
       matrix:
@@ -25,8 +28,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install poetry
           poetry install
-        env:
-          POETRY_VIRTUALENVS_CREATE: false
 
       - name: Test
-        run: poetry run python manage.py test
+        run: python manage.py test
