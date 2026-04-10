@@ -332,5 +332,5 @@ markers = {main = "sys_platform == \"win32\"", dev = "platform_system == \"Windo
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.14"
-content-hash = "acd04e68b70bdbfd9193b77adfe1577497f1785c2e41d1ff53cd546b4a874fd3"
+python-versions = ">=3.13"
+content-hash = "1f3179b1c4fc2bd9133db8b74db69b2871d4a43c3777327ca47cbede20d55165"
